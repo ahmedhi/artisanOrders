@@ -258,23 +258,23 @@ We use GitHub Issues as the official bug tracker for the Soft UI Dashboard. Here
 3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
 
 ## Licensing
-- Copyright 2021 [Creative Tim](https://www.creative-tim.com?ref=readme-sudl)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-sudl)
+- Copyright 2021 [Britos Corp](https://www.creative-tim.com?ref=readme-sudl)
+- Britos Corp [license](https://www.creative-tim.com/license?ref=readme-sudl)
 
 ## Useful Links
 - [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
 - [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
-- [Blog Creative Tim](http://blog.creative-tim.com/)
-- [Free Products](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
-- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=sudl-readme) from Creative Tim
-- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=sudl-readme) from Creative Tim
-- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=sudl-readme) from Creative Tim
-- [More products](https://www.creative-tim.com/bootstrap-themes?ref=sudl-readme) from Creative Tim
+- [Blog Britos Corp](http://blog.creative-tim.com/)
+- [Free Products](https://www.creative-tim.com/bootstrap-themes/free) from Britos Corp
+- [Premium Products](https://www.creative-tim.com/bootstrap-themes/premium?ref=sudl-readme) from Britos Corp
+- [React Products](https://www.creative-tim.com/bootstrap-themes/react-themes?ref=sudl-readme) from Britos Corp
+- [VueJS Products](https://www.creative-tim.com/bootstrap-themes/vuejs-themes?ref=sudl-readme) from Britos Corp
+- [More products](https://www.creative-tim.com/bootstrap-themes?ref=sudl-readme) from Britos Corp
 - Check our Bundles [here](https://www.creative-tim.com/bundles??ref=sudl-readme)
 
 ### Social Media
 
-### Creative Tim
+### Britos Corp
 Twitter: <https://twitter.com/CreativeTim?ref=sudl-readme>
 
 Facebook: <https://www.facebook.com/CreativeTim?ref=sudl-readme>
@@ -295,7 +295,7 @@ Updivision Blog: <https://updivision.com/blog/?ref=sudl-readme>
 
 ## Credits
 
-- [Creative Tim](https://creative-tim.com/?ref=sudl-readme)
+- [Britos Corp](https://creative-tim.com/?ref=sudl-readme)
 - [UPDIVISION](https://updivision.com)
 
 

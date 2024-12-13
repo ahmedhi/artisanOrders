@@ -341,7 +341,7 @@
                                         class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 btn-sm d-flex align-items-center justify-content-center"><i
                                             class="fas fa-arrow-up"></i></button>
                                     <div class="d-flex flex-column">
-                                        <h6 class="mb-1 text-dark text-sm">Creative Tim</h6>
+                                        <h6 class="mb-1 text-dark text-sm">Britos Corp</h6>
                                         <span class="text-xs">26 March 2020, at 08:30 AM</span>
                                     </div>
                                 </div>

@@ -14,8 +14,18 @@ use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Rtl;
 
-use App\Http\Livewire\LaravelExamples\UserProfile;
-use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\Interface\UserManagement\UserProfileInterface;
+use App\Http\Livewire\Interface\UserManagement\UserListingInterface;
+use App\Http\Livewire\Interface\ProductManagement\ProductListingInterface;
+use App\Http\Livewire\Interface\ProductManagement\ProductInterface;
+use App\Http\Livewire\Interface\OrderManagement\OrderListingInterface;
+use App\Http\Livewire\Interface\OrderManagement\OrderInterface;
+use App\Http\Livewire\Interface\CustomerManagement\CustomerListingInterface;
+use App\Http\Livewire\Interface\CustomerManagement\CustomerInterface;
+
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 
 use Illuminate\Http\Request;
 
@@ -44,12 +54,30 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/billing', Billing::class)->name('billing');
-    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/profilem', Profile::class)->name('profile');
     Route::get('/tables', Tables::class)->name('tables');
     Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
     Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
     Route::get('/rtl', Rtl::class)->name('rtl');
-    Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
-    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+
+
+    Route::get('/users', UserListingInterface::class)->name('user-management');
+    Route::get('/profile/{user?}', UserProfileInterface::class)->name('user-profile');
+
+    // Products
+    Route::get('/products', ProductListingInterface::class)->name('product-management');
+    Route::get('/product/{productId}', ProductInterface::class)->name('product-view');
+    Route::post('/products', [ProductController::class, 'store'])->name('product.create');
+
+    // Orders
+    Route::get('/orders', OrderListingInterface::class)->name('order-management');
+    Route::get('/order/{orderId}', OrderInterface::class)->name('order-view');
+    Route::post('/orders', [OrderController::class, 'store'])->name('order.create');
+
+    // Customer
+    Route::get('/customers', CustomerListingInterface::class)->name('customer-management');
+    Route::get('/customer/{customerId}', CustomerInterface::class)->name('customer-view');
+    Route::post('/customers', [CustomerController::class, 'store'])->name('customer.create');
+
 });
 
