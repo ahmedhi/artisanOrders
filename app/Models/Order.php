@@ -8,7 +8,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'status'];
+    protected $fillable = ['user_id', 'status', 'customer_id'];
 
     const STATUS_PENDING = 0;
     const STATUS_CONFIRMED = 1;
@@ -61,5 +61,10 @@ class Order extends Model
             default:
                 return 'Unknown';
         }
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 }

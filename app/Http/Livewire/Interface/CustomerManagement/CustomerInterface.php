@@ -9,6 +9,16 @@ class CustomerInterface extends Component
     public $customer;
     public $orders = [];
     public $showSuccesNotification = false;
+    public $isSuperAdminViewing = false;
+
+    protected function rules()
+    {
+        return [
+            'customer.name' => 'required|string|max:255',
+            'customer.family_name' => 'required|string|max:255',
+            'customer.phone_number' => 'required|string|max:15|unique:customers,phone_number,' . $this->customer->id,
+        ];
+    }
 
     public function mount($customerId)
     {
@@ -23,11 +33,7 @@ class CustomerInterface extends Component
 
     public function save()
     {
-        $this->validate([
-            'customer.name' => 'required|string|max:255',
-            'customer.family_name' => 'required|string|max:255',
-            'customer.phone_number' => 'required|string|max:15|unique:customers,phone_number,' . $this->customer->id,
-        ]);
+        $this->validate($this->rules());
 
         $this->customer->save();
 

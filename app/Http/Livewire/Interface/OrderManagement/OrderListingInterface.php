@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Interface\OrderManagement;
 
+use App\Models\Customer;
 use Livewire\Component;
 use App\Models\Order;
 use App\Models\Product;
@@ -21,9 +22,13 @@ class OrderListingInterface extends Component
 
     public function render()
     {
+
+        
+
         return view('livewire.orderManagement.order-management', [
             'user' => Auth()->user(),
             'products' => Product::all(),
+            'customers' => Customer::all()
         ]);
     }
 }

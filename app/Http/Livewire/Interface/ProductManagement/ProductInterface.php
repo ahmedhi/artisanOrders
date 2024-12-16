@@ -20,6 +20,7 @@ class ProductInterface extends Component
         'product.price' => 'numeric',
         'product.stock_quantity' => 'integer',
         'product.is_service' => 'boolean',
+        'product.is_active' => 'boolean',
     ];
 
     public function mount($productId)

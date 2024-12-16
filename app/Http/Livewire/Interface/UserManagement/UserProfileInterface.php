@@ -22,7 +22,7 @@ class UserProfileInterface extends Component
 
     public function mount($userId = null)
     {
-        $this->userId = $userId;
+        $this->user = $userId;
         $this->user = Auth::user();
         $this->isSuperAdminViewing = false;
 

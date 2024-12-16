@@ -21,10 +21,10 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ $order->name() }}
+                            Client - {{ $order->name() }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            {{ $order->getStatus() }}
+                            {{ $order->getStatus() }} - {{ $order->getOrderAmountAttribute() }} MAD
                         </p>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
 
                 <form wire:submit.prevent="save" method="POST" role="form text-left">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="order-name" class="form-control-label">{{ __('Order Number') }}</label>
                                 <div>
@@ -156,25 +156,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="client" class="form-control-label">{{ __('Client') }}</label>
-                                <div class="">
-                                    <input value="{{ $order->user?->name }}" class="form-control" type="text"
-                                    placeholder="Client" id="client" readonly>
+                                <label for="order-name" class="form-control-label">{{ __('Order Total') }}</label>
+                                <div>
+                                    <input class="form-control" type="text" placeholder="Order Total" value="{{ $order->getOrderAmountAttribute() }} MAD"
+                                        id="order-total" readonly>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="order-owner" class="form-control-label">{{ __('Order Owner') }}</label>
-                                <div class="">
-                                    <input value="{{ $order->user?->name }}" class="form-control" type="text"
-                                    placeholder="Order Owner" id="order-owner" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label for="order-status" class="form-control-label">{{ __('Status') }}</label>
                                 <div class="@error('order.status')border border-danger rounded-3 @enderror">
@@ -187,6 +178,41 @@
                                     </select>
                                 </div>
                                 @error('order.status') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="client" class="form-control-label">{{ __('Client') }}</label>
+                                @if($order->customer)
+                                    <a href="{{ route('customer-view', ['customerId' => $order->customer->id]) }}"
+                                        class="mx-3" data-bs-toggle="tooltip"
+                                        data-bs-original-title="View Client Profile">
+                                        <div class="">
+                                            <input value="{{ $order->customer->getFullNameAttribute() }}" class="form-control" type="text"
+                                            placeholder="Client" id="client" readonly>
+                                        </div>
+                                    </a>
+                                @else
+                                    <div class="">
+                                        <input value="No linked customer" class="form-control" type="text"
+                                        placeholder="Client" id="client" readonly>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="order-owner" class="form-control-label">{{ __('Order Owner') }}</label>
+                                <a href="{{ route('user-profile', ['user' => $order->user?->id]) }}"
+                                    class="mx-3" data-bs-toggle="tooltip"
+                                    data-bs-original-title="View Client Profile">
+                                    <div class="">
+                                        <input value="{{ $order->user?->name }}" class="form-control" type="text"
+                                        placeholder="Client" id="client" readonly>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -209,8 +235,10 @@
                             </div>
                         @endforeach
                     </div>
-                    <button type="button" class="btn btn-secondary mb-3" wire:click="addProduct">Add Another Product</button>
-                    <button type="submit" class="btn btn-primary">Update Order</button>
+                    <div class="mt-2" style="display: flex; justify-content: space-between; align-items: center;">
+                        <button type="button" class="btn btn-secondary mb-3" wire:click="addProduct">Add Another Product</button>
+                        <button type="submit" class="btn btn-primary">Update Order</button>
+                    </div>
                 </form>
 
             </div>

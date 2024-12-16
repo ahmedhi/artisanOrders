@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('family_name');
             $table->string('phone_number')->unique();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }

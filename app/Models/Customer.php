@@ -5,7 +5,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $fillable = ['name', 'family_name', 'phone_number', 'user_id'];
+    protected $fillable = [
+        'name',
+        'family_name',
+        'phone_number',
+        'user_id'
+    ];
 
     public function getFullNameAttribute()
     {

@@ -38,8 +38,6 @@ class ProductController extends Controller
             'is_service' => 'required|boolean',
         ]);
 
-        Log::debug("2");
-
         Product::create([
             'name' => $request->name,
             'description' => $request->description,
